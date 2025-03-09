@@ -16,10 +16,10 @@ export default function Footer() {
             <Link href="/" className="block transform hover:scale-105 transition-transform duration-300">
               <div className="relative w-[120px] h-[48px] md:w-[140px] md:h-[56px]">
                 <Image 
-                  src="/restaurant-logo.png" 
+                  src="/logo.jpg" 
                   alt="Foodies by glance" 
                   fill
-                  className="object-contain"
+                  className="object-contain rounded-full"
                   priority
                 />
               </div>

@@ -28,13 +28,13 @@ import {
 
 export default function ContactPage() {
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full max-w-[100vw] overflow-hidden">
       {/* Hero Section */}
       <section className="relative h-[50vh] bg-background">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="h-full flex flex-col items-center justify-center  px-4"
+          className="h-full flex flex-col items-center justify-center px-4"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center text-primary">Get in Touch</h1>
           <p className="text-xl md:text-2xl text-center text-text max-w-2xl">
@@ -97,7 +97,7 @@ export default function ContactPage() {
         viewport={{ once: true }}
         className="py-20 px-4 md:px-8 bg-background"
       >
-        <div className="max-w-4xl mx-auto bg-card">
+        <div className="max-w-4xl mx-auto">
           <Card>
             <CardHeader>
               <CardTitle className="text-3xl text-center">Send us a Message</CardTitle>
@@ -144,7 +144,7 @@ export default function ContactPage() {
       >
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-12">Connect With Us</h2>
-          <div className="flex justify-center gap-8 mb-12">
+          <div className="flex justify-center gap-8 mb-12 flex-wrap">
             {[
               { icon: <Facebook className="w-6 h-6" />, label: "Facebook" },
               { icon: <Instagram className="w-6 h-6" />, label: "Instagram" },
