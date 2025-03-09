@@ -17,6 +17,7 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 const heroImages = [
   { url: '/hero-bg1.jpg', title: 'Signature Dishes' },
@@ -52,6 +53,7 @@ const reviews = [
 export default function HomePage() {
   const [currentImage, setCurrentImage] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const router = useRouter()
 
   const nextImage = () => {
     setIsTransitioning(true)
@@ -96,7 +98,13 @@ export default function HomePage() {
           >
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-2 md:mb-4 text-center px-4 tracking-tight">Foodies by Glance</h1>
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8 text-center px-4 animate-fade-in">{heroImages[currentImage].title}</p>
-            <Button size="lg" className="bg-primary rounded-lg font-bold">
+            <Button 
+              size="lg" 
+              className="bg-primary rounded-lg font-bold"
+              onClick={() => {
+                router.push('/reservations')
+              }}
+            >
               Reserve Table
             </Button>
           </motion.div>
@@ -240,7 +248,11 @@ export default function HomePage() {
           <p className="text-xl text-black mb-8">
             Book your table now for an unforgettable dining experience
           </p>
-          <Button size="lg" className="bg-chart-4 text-black border-2 border-black">
+          <Button size="lg" className="bg-chart-4 text-black border-2 border-black"
+          onClick={() => {
+            router.push('/reservations')
+          }}
+          >
             Book Now
           </Button>
         </div>
@@ -255,8 +267,8 @@ export default function HomePage() {
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">Guest Reviews</h2>
-          <div className="flex gap-8">
-            <div className="w-1/2">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="w-full md:w-1/2">
               <div className="relative overflow-hidden rounded-lg">
                 <motion.div
                   animate={{
@@ -274,7 +286,7 @@ export default function HomePage() {
                   {[...reviews, ...reviews].map((review, i) => (
                     <motion.div
                       key={i}
-                      className="min-w-[400px] bg-card p-6 rounded-xl shadow-lg border border-text"
+                      className="min-w-[280px] md:min-w-[400px] bg-card p-6 rounded-xl shadow-lg border border-text"
                     >
                       <div className="flex text-yellow-400 mb-4">
                         {[...Array(review.rating)].map((_, i) => (
@@ -294,7 +306,7 @@ export default function HomePage() {
               </div>
             </div>
             
-            <div className="w-1/2 flex flex-col justify-center">
+            <div className="w-full md:w-1/2 flex flex-col justify-center">
               <h3 className="text-3xl font-bold mb-6">What Our Guests Say</h3>
               <p className="text-lg text-muted-foreground mb-8">
                 Discover why our guests keep coming back to experience our exceptional cuisine and service. Our commitment to quality and customer satisfaction shows in every review.
@@ -303,7 +315,6 @@ export default function HomePage() {
           </div>
         </div>
       </motion.section>
-
       {/* Contact Info */}
       <motion.section 
         initial={{ opacity: 0 }}
