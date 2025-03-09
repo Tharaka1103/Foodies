@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { X, CalendarDays, Clock, Users, Utensils, AlertCircle } from 'lucide-react'
+import { X, Utensils, AlertCircle } from 'lucide-react'
 import {
   Select,
   SelectContent,
@@ -22,11 +22,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
 
 const timeSlots = [
   '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
