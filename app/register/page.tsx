@@ -108,8 +108,8 @@ export default function RegisterPage() {
   )
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-background p-4">
-        <div className="absolute top-2 right-2 z-10">
+    <main className="min-h-screen flex items-center justify-center bg-background p-4 overflow-x-hidden">
+        <div className="fixed top-2 right-2 z-10">
             <ModernThemeSwitch />
         </div>
       <motion.div
@@ -136,7 +136,7 @@ export default function RegisterPage() {
                 </p>
               </CardHeader>
               <CardContent className="px-0">
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 max-w-full">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="fullName">Full Name</Label>

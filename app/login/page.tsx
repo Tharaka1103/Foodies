@@ -35,8 +35,8 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-background p-4">
-        <div className="absolute top-2 right-2 z-10">
+    <main className="min-h-screen flex items-center justify-center bg-background p-4 overflow-x-hidden">
+        <div className="fixed top-2 right-2 z-10">
           <ModernThemeSwitch />
         </div>
       <motion.div
