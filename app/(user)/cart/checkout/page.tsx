@@ -70,9 +70,22 @@ export default function CheckoutPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Add your order submission logic here
+    
+    const orderData = {
+      orderId: `ORD-${Date.now()}`,
+      items,
+      totalPrice,
+      formData,
+      paymentMethod,
+      status: "preparing",
+      estimatedDelivery: "30-45 minutes"
+    }
+  
+    // Encode the order data for URL
+    const encodedData = encodeURIComponent(JSON.stringify(orderData))
+    
     clearCart()
-    router.push('/cart/confirmation')
+    router.push(`/cart/confirmation?data=${encodedData}`)
   }
 
   return (
@@ -310,7 +323,7 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                <Button className="w-full" size="lg" type="submit">
+                <Button onClick={handleSubmit} className="w-full" size="lg" type="submit">
                   Place Order
                 </Button>
 
