@@ -17,7 +17,7 @@ export function CartButton() {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-20 right-4 md:bottom-8 md:right-8 bg-primary text-white p-3 md:p-4 rounded-full shadow-lg z-50"
+        className="fixed bottom-20 right-4 md:bottom-8 md:right-8 bg-primary text-black p-3 md:p-4 rounded-full shadow-black z-50 animate-bounce"
         onClick={() => setIsOpen(true)}
       >
         <ShoppingCart className="h-5 w-5 md:h-6 md:w-6" />

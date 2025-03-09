@@ -19,9 +19,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Search, Coffee, Beef, Fish, Salad, Pizza, IceCream } from 'lucide-react'
+import { Search, Coffee, Beef, Fish, Salad, Pizza, IceCream, ShoppingCart, Utensils } from 'lucide-react'
 import Image from 'next/image'
 import { useCart } from '@/contexts/CartContext'
+import { toast } from '@/hooks/use-toast'
 
 // Sample menu data
 const menuItems = [
@@ -298,9 +299,9 @@ export default function MenuPage() {
                       LKR: {item.price.toFixed(2)} /=
                     </p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="flex gap-2">
                     <Button 
-                        className="w-full" 
+                        className="w-full bg-lime-500 text-black transition-colors" 
                         onClick={() => addItem({
                             id: item.id,
                             name: item.name,
@@ -309,10 +310,23 @@ export default function MenuPage() {
                             quantity: 1
                         })}
                     >
+                        <ShoppingCart className="w-4 h-4 mr-2" />
                         Add to Cart
                     </Button>
-                    <Button className="w-full">Add to Order</Button>
-                  </CardFooter>
+                    <Button 
+                        className="w-full bg-primary text-black border border-primary transition-colors"
+                        onClick={() => {
+                            toast({
+                                title: "Added to Order",
+                                description: `${item.name} has been added to your order.`,
+                                duration: 2000,
+                            })
+                        }}
+                    >
+                        <Utensils className="w-4 h-4 mr-2" />
+                        Add to Order
+                    </Button>
+                  </CardFooter>                
                 </Card>
               </motion.div>
             ))}
