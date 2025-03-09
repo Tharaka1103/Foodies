@@ -54,7 +54,7 @@ export const Header = () => {
       <motion.header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-background/95 backdrop-blur-md shadow-sm h-12'
+            ? 'bg-background backdrop-blur-md shadow-sm h-12'
             : 'bg-transparent h-16'
         }`}
         initial={{ y: -100 }}
@@ -108,7 +108,7 @@ export const Header = () => {
             <div className="flex items-center space-x-3">
               <Link 
                 href="/login" 
-                className="hidden md:flex items-center space-x-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-all duration-300"
+                className="hidden md:flex items-center space-x-2 bg-primary text-black px-4 py-2 rounded-lg hover:bg-primary/90 transition-all duration-300"
               >
                 <FiUser className="w-4 h-4" />
                 <span className="text-sm font-medium">Login</span>
