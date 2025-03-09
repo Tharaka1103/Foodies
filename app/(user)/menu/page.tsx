@@ -21,6 +21,7 @@ import {
 } from '@/components/ui/select'
 import { Search, Coffee, Beef, Fish, Salad, Pizza, IceCream } from 'lucide-react'
 import Image from 'next/image'
+import { useCart } from '@/contexts/CartContext'
 
 // Sample menu data
 const menuItems = [
@@ -166,6 +167,7 @@ export default function MenuPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedDietary, setSelectedDietary] = useState('All')
   const [selectedSpicyLevel, setSelectedSpicyLevel] = useState('All')
+  const { addItem } = useCart()
 
   // Filter logic
   const filteredMenu = menuItems.filter(item => {
@@ -297,6 +299,18 @@ export default function MenuPage() {
                     </p>
                   </CardContent>
                   <CardFooter>
+                    <Button 
+                        className="w-full" 
+                        onClick={() => addItem({
+                            id: item.id,
+                            name: item.name,
+                            price: item.price,
+                            image: item.image,
+                            quantity: 1
+                        })}
+                    >
+                        Add to Cart
+                    </Button>
                     <Button className="w-full">Add to Order</Button>
                   </CardFooter>
                 </Card>
