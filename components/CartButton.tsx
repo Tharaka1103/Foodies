@@ -55,8 +55,19 @@ export function CartButton() {
 
               <div className="p-4 md:p-6">
                 {items.length === 0 ? (
-                  <div className="text-center py-6 md:py-8">
-                    <p className="text-muted-foreground text-sm md:text-base">Your cart is empty</p>
+                  <div className="text-center py-8 md:py-12 px-4">
+                    <ShoppingCart className="h-12 w-12 md:h-16 md:w-16 mx-auto mb-4 text-muted-foreground" />
+                    <p className="text-muted-foreground text-base md:text-lg mb-3">Your cart is looking a bit empty</p>
+                    <p className="text-sm md:text-base text-muted-foreground/80 mb-6">Let's add some delicious items!</p>
+                    <Button
+                          onClick={() => {
+                            setIsOpen(false)
+                            router.push('/menu')
+                          }}
+                          className="w-full max-w-xs text-sm md:text-base py-3 md:py-4 hover:scale-105 transition-transform"
+                    >
+                          Browse Menu
+                    </Button>
                   </div>
                 ) : (
                   <>
