@@ -115,7 +115,13 @@ export function CartButton() {
                         >
                           View Cart
                         </Button>
-                        <Button className="w-full text-sm md:text-base py-2 md:py-3">
+                        <Button 
+                        className="w-full text-sm md:text-base py-2 md:py-3"
+                        onClick={() => {
+                            setIsOpen(false)
+                            router.push('/cart/checkout')
+                          }}
+                        >
                           Checkout
                         </Button>
                       </div>

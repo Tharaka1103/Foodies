@@ -4,10 +4,12 @@ import { motion } from 'framer-motion'
 import { Minus, Plus, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/contexts/CartContext'
-
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 export default function CartPage() {
   const { items, totalPrice, updateQuantity, removeItem } = useCart()
-
+  const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
   return (
     <main className="max-w-7xl mx-auto py-8 sm:py-16 px-4">
       <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">Shopping Cart</h1>
@@ -100,7 +102,12 @@ export default function CartPage() {
                   </div>
                 </div>
               </div>
-              <Button className="w-full">Proceed to Checkout</Button>
+              <Button 
+              onClick={() => {
+                setIsOpen(false)
+                router.push('/cart/checkout')
+              }}
+              className="w-full">Proceed to Checkout</Button>
             </div>
           </div>
         </div>
