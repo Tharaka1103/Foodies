@@ -96,7 +96,7 @@ export default function HomePage() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute inset-0 flex flex-col items-start justify-center md:justify-center text-white p-4 md:p-8 md:w-1/2 mt-64 md:mt-0"
+            className="absolute inset-0 flex flex-col items-start justify-center md:justify-center text-white p-4 md:p-8 md:w-1/2 mt-52 md:mt-0"
           >
             <h1 className="text-4xl text-red-600 md:text-6xl font-extrabold mb-2 w-full px-4 md:px-20 text-center">Welcome to Foodies</h1>
             <p className="text-lg text-black md:text-xl md:mt-10 mb-2 w-full px-4 md:px-20 text-center">Savor exquisite cuisine in an elegant atmosphere</p>            
@@ -104,7 +104,7 @@ export default function HomePage() {
               <Button 
                 size="lg" 
                 variant={'outline'}
-                className="w-full md:w-auto rounded-2xl font-semibold mb-2 md:mb-8 border border-black text-black hover:bg-primary hover:text-black text-sm md:text-base"
+                className="w-full bg-[#FDF3D8] md:w-auto rounded-2xl font-semibold mb-2 md:mb-8 border border-black text-black hover:bg-primary hover:text-black text-sm md:text-base"
                 onClick={() => {
                   router.push('/menu')
                 }}
