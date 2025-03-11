@@ -82,62 +82,50 @@ export default function HomePage() {
       <section className="relative h-screen bg-black">
         <div className="relative h-full">
           <Image
-            src={heroImages[currentImage].url}
+            src={'/hero-bg-desktop.jpg'}
             alt="Hero"
             fill
-            className={`object-cover transition-all duration-1000 ease-in-out ${
-              isTransitioning ? 'opacity-0' : 'opacity-100'
-            }`}
+            className={`object-cover transition-all duration-1000 ease-in-out hidden md:block`}
           />
-          <div className="absolute inset-0 bg-black/55" />
-          
+          <Image
+            src={'/hero-bg-mobileview.jpg'}
+            alt="Hero"
+            fill
+            className={`object-cover transition-all duration-1000 ease-in-out md:hidden`}
+          />          
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-white"
+            className="absolute inset-0 flex flex-col items-start justify-center md:justify-center text-white p-4 md:p-8 md:w-1/2 mt-64 md:mt-0"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-2 md:mb-4 text-center px-4 tracking-tight">Foodies by Glance</h1>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8 text-center px-4 animate-fade-in">{heroImages[currentImage].title}</p>
-            <Button 
-              size="lg" 
-              className="bg-primary rounded-lg font-bold"
-              onClick={() => {
-                router.push('/reservations')
-              }}
-            >
-              Reserve Table
-            </Button>
-          </motion.div>
-
-          <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2">
-            {heroImages.map((_, index) => (
-              <button
-                key={index}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  currentImage === index ? 'bg-white scale-125' : 'bg-white/50'
-                }`}
-                onClick={() => setCurrentImage(index)}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={prevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 p-2 rounded-full text-white hover:bg-black/50 transition-colors"
-          >
-            <ArrowLeft size={24} />
-          </button>
-          <button
-            onClick={nextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 p-2 rounded-full text-white hover:bg-black/50 transition-colors"
-          >
-            <ArrowRight size={24} />
-          </button>
-        </div>
-      </section>
-
-      {/* Featured Section */}
-      <motion.section 
+            <h1 className="text-4xl text-red-600 md:text-6xl font-extrabold mb-2 w-full px-4 md:px-20 text-center">Welcome to Foodies</h1>
+            <p className="text-lg text-black md:text-xl md:mt-10 mb-2 w-full px-4 md:px-20 text-center">Savor exquisite cuisine in an elegant atmosphere</p>            
+            <div className="flex flex-col w-full px-4 md:flex-row md:px-24 md:mt-10 space-y-1 md:space-y-0 md:space-x-12">
+              <Button 
+                size="lg" 
+                variant={'outline'}
+                className="w-full md:w-auto rounded-2xl font-semibold mb-2 md:mb-8 border border-black text-black hover:bg-primary hover:text-black text-sm md:text-base"
+                onClick={() => {
+                  router.push('/menu')
+                }}
+              >
+                View Menu
+              </Button>
+              <Button 
+                size="lg" 
+                className="w-full md:w-auto bg-primary rounded-2xl font-semibold mb-16 md:mb-8 border border-primary hover:bg-background hover:text-primary text-sm md:text-base"
+                onClick={() => {
+                  router.push('/reservations')
+                }}
+              >
+                Reserve Table
+              </Button>
+            </div>
+          </motion.div>          
+        </div>      
+        </section>      
+        {/* Featured Section */}      
+        <motion.section 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

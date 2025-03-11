@@ -10,7 +10,7 @@ body {
 
 @layer base {
   :root {
-    --background: #fffcde;
+    --background: #FDF3D8;
     --foreground: #0A0908;
     --card: #FFFFFF;
     --card-foreground: #0A0908;
